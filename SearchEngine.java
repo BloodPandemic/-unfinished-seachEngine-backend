@@ -11,9 +11,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class SearchEngine {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/indexes";
-    private static final String DB_USER = "user22";
-    private static final String DB_PASSWORD = "password";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/db"; //change the name of the database from 'db' to your liking 
+    private static final String DB_USER = "userhttps://dev.mysql.com/downloads/connector/j/"; // update the string before 'https' , in this case it's user, but in your case u should change it 
+    private static final String DB_PASSWORD = "password";   //chaneg the password here
     private static final String ANSI_RESET = "\u001B[0m";
     private static final String ANSI_BOLD = "\u001B[1m";
     private static final String ANSI_CYAN = "\u001B[36m";
@@ -23,7 +23,7 @@ public class SearchEngine {
         Map<String, Site> result = new HashMap<>();
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String sql = "SELECT * FROM testin2 WHERE title LIKE ? OR description LIKE ?";
+            String sql = "SELECT * FROM test WHERE title LIKE ? OR description LIKE ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, "%" + query + "%");
             statement.setString(2, "%" + query + "%");
