@@ -10,15 +10,15 @@ args = parser.parse_args()
 
 db = mysql.connector.connect(
     host="localhost",
-    user="user22",
-    password="password",
-    database="indexes"
+    user="user", #change this
+    password="password", #change this 
+    database="database" #change this 
 )
 
 cursor = db.cursor()
 
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS testin2 (
+    CREATE TABLE IF NOT EXISTS test (
         id INT AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(255),
         description VARCHAR(255),
@@ -39,7 +39,7 @@ def crawl_page(url, depth=0):
         description = soup.find("meta", attrs={"name": "description"})["content"] if soup.find("meta", attrs={"name": "description"}) else ""
         link = url
 
-        sql = "INSERT INTO testin2 (title, description, link) VALUES (%s, %s, %s)"
+        sql = "INSERT INTO test (title, description, link) VALUES (%s, %s, %s)"
         values = (title, description, link)
         cursor.execute(sql, values)
         db.commit()
