@@ -3,7 +3,7 @@ some project in py/java/sql to crawl some pages and display them based on what y
 
 ### Note(py)
 run the crawler like this
-/bin/python3 crawler.py -h[help] --depth start_url
+`/bin/python3 crawler.py -h[help] --depth start_url`
 
 ## Note
 make sure to put the mysql-connector on the same path as the java script
